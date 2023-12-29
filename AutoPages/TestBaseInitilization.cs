@@ -38,13 +38,13 @@ namespace AutoPages
             Browser.Driver.Dispose();
         }
 
-        [OneTimeSetUp]
+        [SetUp]
         public void InitializeFramwork()
         {
             InitializeFramwork1();
         }
 
-        [OneTimeTearDown]
+        [TearDown]
         public void TearDown()
         {
             Dispose();
