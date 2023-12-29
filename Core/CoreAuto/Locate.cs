@@ -1,4 +1,7 @@
 ﻿using OpenQA.Selenium;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace Core.CoreAuto
 {
@@ -16,7 +19,13 @@ namespace Core.CoreAuto
             var a = Browser.Driver.FindElement(By.ClassName(className));
             return a;
         }
-        
+
+        public List<IWebElement> ElementsByClassName(string className)
+        {
+            var a = Browser.Driver.FindElements(By.ClassName(className)).ToList();
+            return a;
+        }
+
         public IWebElement ElementById(string id)
         {
             var a = Browser.Driver.FindElement(By.Id(id));
@@ -39,6 +48,12 @@ namespace Core.CoreAuto
         {
             var a = Browser.Driver.FindElement(By.CssSelector(selector));
             return a;
+        }
+        
+        public ReadOnlyCollection<IWebElement> ElementsBySelector(string selector)
+        {
+            var list = Browser.Driver.FindElements(By.CssSelector(selector));
+            return list;
         }
         
         public IWebElement ElementByXpath(string xpath)

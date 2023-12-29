@@ -1,35 +1,45 @@
-﻿using AutoPages;
+﻿using System;
+using AutoPages;
+using AutoPages.Pages;
 using Core.CoreAuto;
 using NUnit.Framework;
 
 namespace ClassLibrary1
 {
-    public class DemoScript //: TestBaseInitilization
+    public class DemoScript : TestBaseInitilization
     {
-        Browser Browser;
-        Login Login;
-
-        //public DemoScript() : base() { }
-
         [SetUp]
         public void Initialize()
         {
-            Browser = new Browser();
-            Login = new Login(Browser);
-            //Setup = new TestBaseInitilization();
+            InitializeFramwork();
         }
 
-        [Test] 
-        public void Test() 
+        [Test]
+        public void GoogleDemo() 
         {
-            Browser.Naviagte("https://www.google.com/");
+            Browser.Naviagte(Urls.GoogleLink);
             Login.SearchInputField("Test");
+            Login.ClickOnSearchIcon(0);
+            
+            var pageTitle = Browser.PageTitle;
+            Console.WriteLine(pageTitle);
+        }
+
+        [Test]
+        public void AmazonAccessoriesPage()
+        {
+            Browser.Naviagte(Urls.AmazonAccessoriesLink);
+            Browser.Wait(20);
+            Browser.Refresh();
+
+            LandingPage.SelectAccessories("Accessories");
+            Console.WriteLine(Browser.PageTitle);
         }
 
         [TearDown]
-        public void TearDown() 
+        public void TearDown()
         {
-            Browser.CloseWindow();
+            Dispose();
         }
     }
 }

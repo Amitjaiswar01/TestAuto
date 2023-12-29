@@ -50,7 +50,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pages\LandingPage\LandingPage.cs" />
     <Compile Include="Pages\Login\Login.cs" />
+    <Compile Include="Pages\Urls.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestBaseInitilization.cs" />
   </ItemGroup>
