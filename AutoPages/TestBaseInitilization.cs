@@ -1,13 +1,7 @@
 ﻿using AutoPages.Pages.LandingPage;
-using Core;
 using Core.CoreAuto;
 using OpenQA.Selenium;
-using OpenQA.Selenium.DevTools.V118.Browser;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AutoPages
 {
@@ -17,10 +11,7 @@ namespace AutoPages
         public Login Login { get; set; }
         public LandingPage LandingPage { get; set; }
 
-        public TestBaseInitilization ()
-        {
-           
-        }
+        public TestBaseInitilization() { }
 
         public IWebDriver GetDriverInstance()
         {
@@ -33,7 +24,7 @@ namespace AutoPages
             return chromeDriverInstance;
         }
 
-        public void InitializeFramwork()
+        public void InitializeFramwork() 
         {
             Browser = new Browser();
             Login = new Login(Browser);
