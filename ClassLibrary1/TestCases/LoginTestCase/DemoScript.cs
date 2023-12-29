@@ -33,8 +33,6 @@ namespace ClassLibrary1
             Console.WriteLine(Browser.PageTitle);
 
             Browser.Action.DownAction();
-
-            Assert.That(2 < 3, "no idea", "Wrong");
         }
     }
 }
