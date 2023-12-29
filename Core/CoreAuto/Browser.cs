@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using Core.Verify;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
 
@@ -7,8 +8,9 @@ namespace Core.CoreAuto
     public class Browser
     {
         public IWebDriver Driver;
-        public Action action;
+        public ActionElements Action;
         public Locate Locate;
+
 
         // Get Current Page Url
         public string PageUrl => Driver.Url;
@@ -23,7 +25,9 @@ namespace Core.CoreAuto
         {
             Driver = new Drivers().CreateChromeDriver();
             Driver.Manage().Window.Maximize();
+
             Locate = new Locate(this);
+            Action = new ActionElements(Driver);
         }
 
         public void Naviagte(string url)

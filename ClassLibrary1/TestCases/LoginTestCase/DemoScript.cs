@@ -2,12 +2,13 @@
 using AutoPages;
 using AutoPages.Pages;
 using Core.CoreAuto;
+using Core.Verify;
 using NUnit.Framework;
 
 namespace ClassLibrary1
 {
     public class DemoScript : TestBaseInitilization
-    {
+    { 
         [SetUp]
         public void Initialize()
         {
@@ -23,6 +24,8 @@ namespace ClassLibrary1
             
             var pageTitle = Browser.PageTitle;
             Console.WriteLine(pageTitle);
+
+            Browser.Action.DownAction();
         }
 
         [Test]
@@ -34,6 +37,8 @@ namespace ClassLibrary1
 
             LandingPage.SelectAccessories("Accessories");
             Console.WriteLine(Browser.PageTitle);
+
+            Browser.Action.DownAction();
         }
 
         [TearDown]

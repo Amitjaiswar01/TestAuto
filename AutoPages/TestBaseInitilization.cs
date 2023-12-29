@@ -1,5 +1,6 @@
 ﻿using AutoPages.Pages.LandingPage;
 using Core.CoreAuto;
+using Core.Verify;
 using OpenQA.Selenium;
 using System;
 
