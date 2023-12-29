@@ -1,6 +1,7 @@
 ﻿using AutoPages.Pages.LandingPage;
 using Core.CoreAuto;
 using Core.Verify;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using System;
 
@@ -25,7 +26,7 @@ namespace AutoPages
             return chromeDriverInstance;
         }
 
-        public void InitializeFramwork() 
+        private void InitializeFramwork1() 
         {
             Browser = new Browser();
             Login = new Login(Browser);
@@ -35,6 +36,18 @@ namespace AutoPages
         public void Dispose()
         {
             Browser.Driver.Dispose();
+        }
+
+        [OneTimeSetUp]
+        public void InitializeFramwork()
+        {
+            InitializeFramwork1();
+        }
+
+        [OneTimeTearDown]
+        public void TearDown()
+        {
+            Dispose();
         }
     }
 }

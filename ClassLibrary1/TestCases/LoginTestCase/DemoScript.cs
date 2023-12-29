@@ -2,19 +2,13 @@
 using AutoPages;
 using AutoPages.Pages;
 using Core.CoreAuto;
-using Core.Verify;
 using NUnit.Framework;
 
 namespace ClassLibrary1
 {
+    [TestFixture]
     public class DemoScript : TestBaseInitilization
-    { 
-        [SetUp]
-        public void Initialize()
-        {
-            InitializeFramwork();
-        }
-
+    {
         [Test]
         public void GoogleDemo() 
         {
@@ -39,12 +33,8 @@ namespace ClassLibrary1
             Console.WriteLine(Browser.PageTitle);
 
             Browser.Action.DownAction();
-        }
 
-        [TearDown]
-        public void TearDown()
-        {
-            Dispose();
+            Assert.That(2 < 3, "no idea", "Wrong");
         }
     }
 }
